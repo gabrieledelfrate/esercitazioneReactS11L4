@@ -17,6 +17,7 @@ const ArticleList: React.FC<ArticleListProps> = () => {
         setArticles(response.data);
       } catch (error) {
         console.error('Errore nel recupero degli articoli:', error);
+        // In caso di errore, potresti gestire il fallback o mostrare un messaggio di errore.
       }
     };
 
@@ -26,15 +27,19 @@ const ArticleList: React.FC<ArticleListProps> = () => {
   return (
     <div>
       <h1>Spaceflight News</h1>
-      {articles.map((article) => (
-        <div key={article.id}>
-          <Link to={`/detail/${article.id}`}>
-            <h2>{article.title}</h2>
-          </Link>
-          <p>{article.publishedAt}</p>
-          <img src={article.imageUrl} alt={article.title} style={{ maxWidth: '100%' }} />
-        </div>
-      ))}
+      {Array.isArray(articles) && articles.length > 0 ? (
+        articles.map((article) => (
+          <div key={article.id}>
+            <Link to={`/detail/${article.id}`}>
+              <h2>{article.title}</h2>
+            </Link>
+            <p>{article.publishedAt}</p>
+            <img src={article.imageUrl} alt={article.title} style={{ maxWidth: '100%' }} />
+          </div>
+        ))
+      ) : (
+        <p>Nessun articolo trovato.</p>
+      )}
     </div>
   );
 };
