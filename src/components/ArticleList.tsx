@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Article from '../interfaces/Article';
 
 interface ArticleListProps {
-  // Proprietà proprie se necessario
+  
 }
 
 const ArticleList: React.FC<ArticleListProps> = () => {
@@ -17,7 +17,6 @@ const ArticleList: React.FC<ArticleListProps> = () => {
         setArticles(response.data);
       } catch (error) {
         console.error('Errore nel recupero degli articoli:', error);
-        // In caso di errore, potresti gestire il fallback o mostrare un messaggio di errore.
       }
     };
 

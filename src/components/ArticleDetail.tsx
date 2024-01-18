@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Article from '../interfaces/Article';
 
 interface ArticleDetailProps {
-  // Proprietà proprie se necessario
+  
 }
 
 const ArticleDetail: React.FC<ArticleDetailProps> = () => {
